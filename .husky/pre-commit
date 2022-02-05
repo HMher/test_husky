@@ -1,4 +1,3 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
-
-eslint .
+eslint . && yarn prettier --write . && git add . && git commit --amend
