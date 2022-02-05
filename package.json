@@ -17,9 +17,10 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "clean-install": "rm -r node_modules && yarn",
-    "delete-aaa": "rm aaa.txt && yarn",
-    "check-code":"eslint ." 
+    "delete-aaa": "rm aaa.txt && yarn"
   },
+  "check-code":"eslint .", 
+
   "eslintConfig": {
     "extends": [
       "react-app",
@@ -44,9 +45,12 @@
     "husky": "^7.0.4",
     "prettier": "^2.5.1"
   },
+  "lint-staged": {
+    "*.js": ["eslint", "prettier --write"]
+  },
   "husky": {
     "hooks": {
-      "pre-commit": "check-code"
+      "pre-commit": "lint-staged"
     }
   }
 }
